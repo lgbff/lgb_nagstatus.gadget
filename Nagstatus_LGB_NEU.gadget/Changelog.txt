@@ -1,7 +1,7 @@
 2012-05-17/V2.0.0/karsten.schoeke@geobasis-bb.de
-        Anpassung Größe Settings Formular.
-        Anpassung Query für Flyout Anzeige --> keine ok Services mehr anzeigen.
-        Gelbes Icon für service warning eingefügt.
+        change size of setting form.
+        change query for flyout view --> no OK service are showing.
+        insert yellow icon for service warnings.
 
 2008-06-29/V1.5.0/jouko@markkanen.net
         Visual layout implementation modified and fixed some bugs.
