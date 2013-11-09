@@ -1,2 +1,6 @@
-Roadmap and plans for Nagstatus gadget
+Roadmap and plans for Nagstatus gadget.
+
+- dont display ACK Services.
+- in case of host [SCHED], dont display his services
+- insert a option for regex services for dont display this 
 
