@@ -8,8 +8,8 @@
     <xsl:variable name="hostsok" select="count(/nagstatus/host[current_state=0])" />
     <xsl:variable name="hostsdown" select="count(/nagstatus/host[current_state=1 and problem_has_been_acknowledged=0 and scheduled_downtime_depth=0])" />
     <xsl:variable name="hostsunreach" select="count(/nagstatus/host[current_state=2 and problem_has_been_acknowledged=0 and scheduled_downtime_depth=0])" />
-    <xsl:variable name="hostsack" select="count(/nagstatus/host[current_state&gt;0 and not(problem_has_been_acknowledged=0 and scheduled_downtime_depth=0)])" />
-    
+	<xsl:variable name="hostsack" select="count(/nagstatus/host[current_state&gt;0 and not(problem_has_been_acknowledged=0 and scheduled_downtime_depth=0)])" />
+	
     <xsl:variable name="servtot" select="count(/nagstatus/host/service)" />
     <xsl:variable name="servok" select="count(/nagstatus/host/service[current_state=0])" />
     <xsl:variable name="servwarn" select="count(/nagstatus/host/service[current_state=1 and problem_has_been_acknowledged=0 and scheduled_downtime_depth=0])" />
@@ -52,18 +52,7 @@
                  style="width:{$per_hostsdown}px;height:6px;" />
         </xsl:if>
     </div>
-    <!--
-    <div id="hostok" style="position:absolute;overflow:hidden;width:18px;height:24px;top:44px;left:12px;text-align:center;">
-        <xsl:choose>
-            <xsl:when test="$hostsok=0">
-                <span style="color:red;">OK<br /><xsl:value-of select="$hostsok" /></span>
-            </xsl:when>
-            <xsl:otherwise>
-                <span style="color:green;">OK<br /><xsl:value-of select="$hostsok" /></span>
-            </xsl:otherwise>
-        </xsl:choose>
-    </div>
-    -->
+
     <div id="hostunreach" style="position:absolute;overflow:hidden;width:58px;height:24px;top:44px;left:12px;text-align:center;">
         <xsl:choose>
             <xsl:when test="count(/nagstatus/host[current_state=2])=0">
@@ -127,18 +116,7 @@
                  style="width:{$per_servunk}px;height:6px;" />
         </xsl:if>
     </div>
-    <!--
-    <div id="servok" style="position:absolute;overflow:hidden;width:18px;height:24px;top:94px;left:12px;text-align:center;">
-        <xsl:choose>
-            <xsl:when test="$servok=0">
-                <span style="color:red;">OK<br /><xsl:value-of select="$servok" /></span>
-            </xsl:when>
-            <xsl:otherwise>
-                <span style="color:green;">OK<br /><xsl:value-of select="$servok" /></span>
-            </xsl:otherwise>
-        </xsl:choose>
-    </div>
-    -->
+
     <div id="servwarn" style="position:absolute;overflow:hidden;width:35px;height:24px;top:94px;left:12px;text-align:center;">
         <xsl:choose>
             <xsl:when test="count(/nagstatus/host/service[current_state=1])=0">

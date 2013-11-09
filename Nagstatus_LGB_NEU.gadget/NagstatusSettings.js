@@ -12,7 +12,7 @@ function initSettings() {
     windowTitle.value = System.Gadget.Settings.read("windowTitle");
     refreshTimeoutSec.value = System.Gadget.Settings.read("refreshTimeoutSec");
     if (System.Gadget.Settings.read("xmlProviderType") == 'file') { xmlProviderType[1].selected = true; }
-    if (System.Gadget.Settings.read("displayUpdate") == 'On') { document.getElementById("displayUpdate").checked = true; } 
+    if (System.Gadget.Settings.read("displayInventory") == 'On') { document.getElementById("displayInventory").checked = true; } 
     alertSound.value = System.Gadget.Settings.read("alertSound");
 }
 
@@ -41,7 +41,7 @@ function closeSettings(event) {
         } */
 		 /* if (document.getElementByName('displayUpdate').checked == true) { System.Gadget.Settings.write("displayUpdate", "true"); }	*/
 		/* if (document.getElementByName('displayUpdate').checked = true) { window.alert("Alles Klar!!"); } */
-		if (document.getElementById("displayUpdate").checked) { System.Gadget.Settings.write("displayUpdate", "On"); } else { System.Gadget.Settings.write("displayUpdate", "Off"); }
+		if (document.getElementById("displayInventory").checked) { System.Gadget.Settings.write("displayInventory", "On"); } else { System.Gadget.Settings.write("displayInventory", "Off"); }
         System.Gadget.Settings.write("alertSound", alertSound.value);
     }
     

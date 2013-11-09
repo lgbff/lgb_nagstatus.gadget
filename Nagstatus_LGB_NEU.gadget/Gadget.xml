@@ -3,7 +3,7 @@
   <name>Nagios Status</name>
   <namespace>windows.sdk</namespace>
   <version>2.0.1</version>
-  <author name="Jouko Markkanen Karsten Schoeke">
+  <author name="Jouko Markkanen, Karsten Schoeke">
     <info url="http://www.markkanen.net" />
   </author>
   <copyright>&#169; Jouko Markkanen</copyright>

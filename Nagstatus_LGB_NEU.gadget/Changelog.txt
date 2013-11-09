@@ -1,8 +1,11 @@
+2012-11-08/V2.0.2/karsten.schoeke@geobasis-bb.de
+		dont display ACK Services in flyout.
+
+        New setting:
+		insert option variable displayInventory, to dont show check_mk's inventory services.
+
 2012-05-17/V2.0.1/karsten.schoeke@geobasis-bb.de
 		dont show ok hosts/services, space problem in large environments
-		
-		New setting:
-		insert option variable displayUpdate, to dont show update services ala apt,zypper, etc.
 
 2012-05-17/V2.0.0/karsten.schoeke@geobasis-bb.de
         change size of setting form.
