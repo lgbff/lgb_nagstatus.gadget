@@ -1,13 +1,20 @@
-2012-11-08/V2.0.2/karsten.schoeke@geobasis-bb.de
+2013-11-17/V2.0.3/karsten.schoeke@geobasis-bb.de
+        dont display this services in flyout:
+	    - check_mk Inventory
+		- APT
+		- zypper
+		(at the moment without reading settings option)
+
+2013-11-08/V2.0.2/karsten.schoeke@geobasis-bb.de
 		dont display ACK Services in flyout.
 
         New setting:
-		insert option variable displayInventory, to dont show check_mk's inventory services.
+		insert option variable displayInventory, to dont show check_mk's inventory services. (is not active at the moment)
 
-2012-05-17/V2.0.1/karsten.schoeke@geobasis-bb.de
+2013-05-17/V2.0.1/karsten.schoeke@geobasis-bb.de
 		dont show ok hosts/services, space problem in large environments
 
-2012-05-17/V2.0.0/karsten.schoeke@geobasis-bb.de
+2013-05-17/V2.0.0/karsten.schoeke@geobasis-bb.de
         change size of setting form.
         change query for flyout view --> no OK service are showing.
         insert yellow icon for service warnings.

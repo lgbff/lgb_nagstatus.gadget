@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xsl:stylesheet version="1.0"
+<xsl:stylesheet version="2.0"
                 xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+				xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+				xmlns:fn="http://www.w3.org/2005/xpath-functions"
                 xmlns:msxsl="urn:schemas-microsoft-com:xslt"
                 xmlns:nagstatus="http://markkanen.net/nagstatusnamespace" >
 
@@ -50,7 +52,7 @@
         <!-- <xsl:comment>Unreachable/down hosts that have been acknowledged or scheduled, but have non-acknowledged/scheduled failed services</xsl:comment>
         <xsl:apply-templates select="host[current_state&gt;0 and not(problem_has_been_acknowledged=0 and scheduled_downtime_depth=0) and count(service[current_state&gt;0 and problem_has_been_acknowledged=0 and scheduled_downtime_depth=0])&gt;0]" />-->
         <xsl:comment>OK hosts that have not been acknowledged or scheduled and have non-acknowledged/scheduled failed services</xsl:comment>
-        <xsl:apply-templates select="host[current_state=0 and problem_has_been_acknowledged=0 and scheduled_downtime_depth=0 and count(service[current_state&gt;0 and problem_has_been_acknowledged=0 and scheduled_downtime_depth=0])&gt;0]" />
+        <xsl:apply-templates select="host[current_state=0 and problem_has_been_acknowledged=0 and scheduled_downtime_depth=0 and count(service[current_state&gt;0 and problem_has_been_acknowledged=0 and scheduled_downtime_depth=0 and @description!='Check_MK inventory' and @description!='APT' and @description!='zypper' and @description!='LOG*'])&gt;0]" />
     </div>
 </xsl:template>
 
@@ -82,27 +84,29 @@
 </xsl:template>
 
 <xsl:template match="service">
-    <xsl:variable name="host" select="@host" />
-    <xsl:variable name="service" select="@description" />
-	<xsl:if test='current_state&gt;0 and problem_has_been_acknowledged=0 and scheduled_downtime_depth=0'>
-		<xsl:choose>
-			<xsl:when test="current_state=2">
-				<img style="padding:2px;padding-left:14px;padding-right:5px;vertical-align:middle;" src="images/trafficlight_red_10x10.jpg" />
-			</xsl:when>
-			<xsl:when test="current_state=1">
-				<img style="padding:2px;padding-left:14px;padding-right:5px;vertical-align:middle;" src="images/trafficlight_orange_10x10.jpg" />
-			</xsl:when>
-			<xsl:when test="current_state=3">
-				<img style="padding:2px;padding-left:14px;padding-right:5px;vertical-align:middle;" src="images/trafficlight_yellow_10x10.jpg" />
-			</xsl:when>
-		</xsl:choose>
-		<xsl:if test="problem_has_been_acknowledged&gt;0">[ACK] </xsl:if>
-		<xsl:if test="scheduled_downtime_depth&gt;0">[SCHED] </xsl:if>
-        <a href="#" onClick="openNagiosExtinfo('{$host}','{$service}')" style="color:white;"><xsl:value-of select="@description" /></a><br />
-        <div style="margin-left:28px;"><xsl:value-of select="plugin_output" /><br />
-        Last change: <xsl:value-of select="nagstatus:timestampToString(last_state_change*1000)" />
-        </div>
-    </xsl:if>
+	<!-- <xsl:if test="@description!='Check_MK inventory'"> -->
+		<xsl:variable name="host" select="@host" />
+		<xsl:variable name="service" select="@description" />
+		<xsl:if test="current_state&gt;0 and problem_has_been_acknowledged=0 and scheduled_downtime_depth=0 and @description!='Check_MK inventory' and @description!='APT' and @description!='zypper' and @description!='LOG*'">
+			<xsl:choose>
+				<xsl:when test="current_state=2">
+					<img style="padding:2px;padding-left:14px;padding-right:5px;vertical-align:middle;" src="images/trafficlight_red_10x10.jpg" />
+				</xsl:when>
+				<xsl:when test="current_state=1">
+					<img style="padding:2px;padding-left:14px;padding-right:5px;vertical-align:middle;" src="images/trafficlight_orange_10x10.jpg" />
+				</xsl:when>
+				<xsl:when test="current_state=3">
+					<img style="padding:2px;padding-left:14px;padding-right:5px;vertical-align:middle;" src="images/trafficlight_yellow_10x10.jpg" />
+				</xsl:when>
+			</xsl:choose>
+			<xsl:if test="problem_has_been_acknowledged&gt;0">[ACK] </xsl:if>
+			<xsl:if test="scheduled_downtime_depth&gt;0">[SCHED] </xsl:if>
+			<a href="#" onClick="openNagiosExtinfo('{$host}','{$service}')" style="color:white;"><xsl:value-of select="@description" /></a><br />
+			<div style="margin-left:28px;"><xsl:value-of select="plugin_output" /><br />
+			Last change: <xsl:value-of select="nagstatus:timestampToString(last_state_change*1000)" />
+			</div>
+		</xsl:if>
+	<!-- </xsl:if> -->
 </xsl:template>
 
 </xsl:stylesheet>

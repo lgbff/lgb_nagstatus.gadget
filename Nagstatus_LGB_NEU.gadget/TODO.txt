@@ -1,6 +1,5 @@
 Roadmap and plans for Nagstatus gadget.
 
-- in case of host [SCHED], don't display his services in flyout.
-- insert a option to don't display check_mk inventory checks in list of issues.
+- in case of host [SCHED], don't display all his services in flyout.
 - insert a option for regex services to don't display this in list of issues.
 
