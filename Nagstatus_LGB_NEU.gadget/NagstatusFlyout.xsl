@@ -4,8 +4,12 @@
 				xmlns:xs="http://www.w3.org/2001/XMLSchema" 
 				xmlns:fn="http://www.w3.org/2005/xpath-functions"
                 xmlns:msxsl="urn:schemas-microsoft-com:xslt"
-                xmlns:nagstatus="http://markkanen.net/nagstatusnamespace" >
-
+				xmlns:regexp="http://exslt.org/regular-expressions"
+                extension-element-prefixes="regexp"
+                xmlns:nagstatus="http://markkanen.net/nagstatusnamespace" >			
+				
+<xsl:import href="regexp.xsl" />
+				
 <msxsl:script language="javascript" implements-prefix="nagstatus">
     function zeroPad(number, digits) {
         number = number.toString();
