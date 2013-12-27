@@ -3,13 +3,9 @@
 	    - check_mk Inventory
 		- APT
 		- Zypper
-		(at the moment without reading settings option)
 
 2013-11-08/V2.0.2/karsten.schoeke@geobasis-bb.de
 		dont display ACK Services in flyout.
-
-        New setting:
-		insert option variable displayInventory, to dont show check_mk's inventory services. (is not active at the moment)
 
 2013-05-17/V2.0.1/karsten.schoeke@geobasis-bb.de
 		dont show ok hosts/services, space problem in large environments
