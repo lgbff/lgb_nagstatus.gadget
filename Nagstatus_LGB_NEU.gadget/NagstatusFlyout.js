@@ -6,7 +6,7 @@ function initFlyout() {
     var url = System.Gadget.Settings.read("xmlProviderUrl") + "?node=host&node=service&elem=current_state&elem=plugin_output";
     var xmlProviderUser = System.Gadget.Settings.read("xmlProviderUser");
     var xmlProviderPass = System.Gadget.Settings.read("xmlProviderPass");
-	var displayInventory = System.Gadget.Settings.read("displayInventory")
+	// var displayInventory = System.Gadget.Settings.read("displayInventory")
 
     // Get source XML
     var xmlHttpObj = new XMLHttpRequest();

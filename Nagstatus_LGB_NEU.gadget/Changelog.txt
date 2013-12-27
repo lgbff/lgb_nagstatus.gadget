@@ -2,7 +2,7 @@
         dont display this services in flyout:
 	    - check_mk Inventory
 		- APT
-		- zypper
+		- Zypper
 		(at the moment without reading settings option)
 
 2013-11-08/V2.0.2/karsten.schoeke@geobasis-bb.de
