@@ -1,14 +1,14 @@
 2013-11-17/V2.0.3/karsten.schoeke@geobasis-bb.de
         dont display this services in flyout:
 	    - check_mk Inventory
-		- APT
-		- Zypper
+	    - APT
+	    - Zypper
 
 2013-11-08/V2.0.2/karsten.schoeke@geobasis-bb.de
-		dont display ACK Services in flyout.
+	dont display ACK Services in flyout.
 
 2013-05-17/V2.0.1/karsten.schoeke@geobasis-bb.de
-		dont show ok hosts/services, space problem in large environments
+	dont show ok hosts/services, space problem in large environments
 
 2013-05-17/V2.0.0/karsten.schoeke@geobasis-bb.de
         change size of setting form.
