@@ -1,3 +1,9 @@
+2014-05-25/V2.0.4/karsten.schoeke@geobasis-bb.de
+        dont display this services in flyout:
+	    - LOG System
+	    - LOG Application
+	    - ESX Guest Tools
+
 2013-11-17/V2.0.3/karsten.schoeke@geobasis-bb.de
         dont display this services in flyout:
 	    - check_mk Inventory
