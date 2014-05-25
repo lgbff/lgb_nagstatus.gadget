@@ -54,7 +54,7 @@
         <!-- <xsl:comment>Unreachable/down hosts that have been acknowledged or scheduled, but have non-acknowledged/scheduled failed services</xsl:comment>
         <xsl:apply-templates select="host[current_state&gt;0 and not(problem_has_been_acknowledged=0 and scheduled_downtime_depth=0) and count(service[current_state&gt;0 and problem_has_been_acknowledged=0 and scheduled_downtime_depth=0])&gt;0]" />-->
         <xsl:comment>OK hosts that have not been acknowledged or scheduled and have non-acknowledged/scheduled failed services</xsl:comment>
-        <xsl:apply-templates select="host[current_state=0 and problem_has_been_acknowledged=0 and scheduled_downtime_depth=0 and count(service[current_state&gt;0 and problem_has_been_acknowledged=0 and scheduled_downtime_depth=0 and @description!='Check_MK inventory' and @description!='APT' and @description!='Zypper Updates' and @description!='LOG.*'])&gt;0]" />
+        <xsl:apply-templates select="host[current_state=0 and problem_has_been_acknowledged=0 and scheduled_downtime_depth=0 and count(service[current_state&gt;0 and problem_has_been_acknowledged=0 and scheduled_downtime_depth=0 and @description!='Check_MK inventory' and @description!='APT' and @description!='Zypper Updates' and @description!='LOG System' and @description!='LOG Application' and @description!='ESX Guest Tools'])&gt;0]" />
     </div>
 </xsl:template>
 
@@ -90,7 +90,7 @@
 		<xsl:variable name="host" select="@host" />
 		<xsl:variable name="service" select="@description" />
 		<!-- <xsl:if test="current_state&gt;0 and problem_has_been_acknowledged=0 and scheduled_downtime_depth=0 and @description!='Check_MK inventory' and @description!='APT' and @description!='Zypper Updates' and nagstatus:noServices('@description','LOG.*')=False"> -->
-		<xsl:if test="current_state&gt;0 and problem_has_been_acknowledged=0 and scheduled_downtime_depth=0 and @description!='Check_MK inventory' and @description!='APT' and @description!='Zypper Updates'">
+		<xsl:if test="current_state&gt;0 and problem_has_been_acknowledged=0 and scheduled_downtime_depth=0 and @description!='Check_MK inventory' and @description!='APT' and @description!='Zypper Updates' and @description!='LOG System' and @description!='LOG Application' and @description!='ESX Guest Tools'">
 			<xsl:choose>
 				<xsl:when test="current_state=2">
 					<img style="padding:2px;padding-left:14px;padding-right:5px;vertical-align:middle;" src="images/trafficlight_red_10x10.jpg" />
